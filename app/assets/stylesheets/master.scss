@@ -1,0 +1,50 @@
+@import "bootstrap";
+
+.clear {
+  clear: both;
+}
+
+body {
+  background: white;
+}
+.all {
+  margin-top: 30px;
+  margin-left: -30px;
+}
+hr {
+  height: 5px;
+  width: 200px;
+  background: black;
+  display: inline-block;
+  margin-top: 0px;
+}
+p {
+  font-family: "Questrial";
+  color: black;
+  font-size: 40px;
+  font-weight: 900;
+  position: absolute;
+  top: 38px;
+  left: 15px;
+  transition: left .5s linear;
+}
+p:hover {
+  left: 220px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.links {
+  padding-top: 26px;
+}
+
+.booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+}
