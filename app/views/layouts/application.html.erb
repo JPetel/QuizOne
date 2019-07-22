@@ -16,6 +16,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+      <a class="navbar-brand" href="#"></a>
+      <%= link_to root_path, class: 'navbar-brand' %>
         <div class="all">
           <hr>
           <br>
@@ -26,13 +28,44 @@
         </div>
     </div>
 
-        <div class="col-sm-10 offset-3">
+        <div class="UofT col-5">
           School of Continuing Studies - University of Toronto
         </div>
-        <div class="links">
-          <% link_to 'Contribute', '#' %>
-          Add
+
+
+        <!-- Button trigger modal -->
+
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+      Contribute
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Share Your Funny Sign!</h4>
+          </div>
+          <%= simple_form_for Sign.new, url: signs_path do |f| %>
+          <div class="modal-body">
+             
+                <%= f.input :saying %>
+                <%= f.input :city %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.submit 'Share!', class: 'btn btn-primary' %>
+            <% link_to 'New', root_path, class: 'nav-link'%>
+          </div>
+         <% end %>
         </div>
+      </div>
+    </div>
+
+
     </nav>
 
     
