@@ -1,33 +1,21 @@
 
-<br />
-<br />
-<div class="funnysign col-sm-10 offset-1">
-  <h1>Read or Contribute funny signs!</h1>
+<div class="funnysign col-sm-12">
+  <h1>Contribute funny Signs or Store Names!</h1>
 </div>
 <br />
 <br />
 
 <div class="completed_sayings">
-
-<% @signs.each do |sign| %>
-  
-
-  <div>
+  <% @signs.each do |sign| %>
     <h1><%= sign.saying %></h1><br />
-    <i><%=  sign.city %></i><br />
-  </div>
-
-  <hr />
-<% end %>
+    <h3><%=  sign.city %></h3>
+    <h11>Funny Sign</h11>
+    <br />
+    <hr />
+  <% end %>
 </div>
 
 
-
-
-<br />
-<br />
-<br />
-<br />
 
 
 

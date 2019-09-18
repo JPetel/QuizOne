@@ -1,19 +1,14 @@
 class SignsController < ApplicationController
 
 
-    def index
+  def index
     @signs = Sign.all
   end
 
-
- 
-
   def create
     Sign.create(sign_params)
-    redirect_to root_path
+    redirect_to signs_path
   end
-
-
 
   private
 

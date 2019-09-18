@@ -1,45 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QuizOne</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title>Quiz</title>
+      <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+              <link href="http://vjs.zencdn.net/5.12.6/video-js.css" rel="stylesheet">
+                <div class="flex-content-container">
+                  <nav class="navbar navbar-toggleable-md myNavbar bg-inverse">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="QuizTitle col-2">
+                        <%= link_to 'QuizTwo', root_url, class: 'navbar-brand' %>
+                    </div>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                      <ul class="navbar-nav">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" id= 'sign-modal'>
+                          Contribute a Funny Sign
+                        </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#FunnyNameModal" id='store-modal'>
+                          Contribute a Funny Store Name
+                        </button>
+                      </ul>
+                    </div>
+                    <div class="UofT col-4 text-center">
+                      School of Continuing Studies - University of Toronto
+                    </div>
+                  </nav>
+                </div>
+  </header>
+  <%= yield %>
+  
   <body>
 
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-      <a class="navbar-brand" href="#"></a>
-      <%= link_to root_path, class: 'navbar-brand' %>
-        <div class="all">
-          <hr>
-          <br>
-          <hr>
-          <br>
-          <hr>
-            <p>QuizOne</p>
+  </body>
+
+
+<br class="clear" />
+
+    <!-------- Funny Store Name Modal ----------->
+    <div class="modal fade" id="FunnyNameModal" tabindex="-1" role="dialog" aria-labelledby="FunnyNameModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              
+            </button>
+            <h4 class="modal-title" id="FunnyNameModalLabel">Share Your Funny Store Name</h4>
+          </div>
+          <%= simple_form_for Store.new, url: stores_path do |f| %>
+          <div class="modal-body">
+             
+                <%= f.input :storename, label: "Store Name" %>
+                <%= f.input :city %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.submit 'Share!', class: 'btn btn-primary' %>
+            <% link_to 'New', stores_path, class: 'nav-link'%>
+          </div>
+         <% end %>
         </div>
+      </div>
     </div>
 
-        <div class="UofT col-5">
-          School of Continuing Studies - University of Toronto
-        </div>
-
-
-        <!-- Button trigger modal -->
-
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
-      Contribute
-    </button>
-
-    <!-- Modal -->
+    <!--------- Funny Saying Modal --------->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -58,29 +88,13 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <%= f.submit 'Share!', class: 'btn btn-primary' %>
-            <% link_to 'New', root_path, class: 'nav-link'%>
+            <% link_to 'New', signs_path, class: 'nav-link'%>
           </div>
          <% end %>
         </div>
       </div>
     </div>
 
-
-    </nav>
-
-    
-
-    
-
-
-  </header>
-
-
-    <%= yield %>
-  </body>
-
-
-<br class="clear" />
 
 
 </html>
